@@ -23,7 +23,7 @@ pythonの仮想環境を起動（既に金澤が作成済み）。これでプ�
 $ source ProMngVenv/bin/activate
 
 Djangoのインストール
-$ pip3 install Django==2.2.6
+$ pip install Django==2.2.6
 
 Djangoがインストールできたか確信する。
 $ python3 -m django --version
