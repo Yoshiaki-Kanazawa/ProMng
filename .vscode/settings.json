@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "ProMngVenv/bin/python3"
+    "python.pythonPath": "ProMngVenv/bin/python3",
+    "git.ignoreLimitWarning": true
 }
