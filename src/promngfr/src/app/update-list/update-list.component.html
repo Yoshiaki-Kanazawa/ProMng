@@ -1,0 +1,13 @@
+<h2>Update List</h2>
+
+<div *ngFor="let update of updates">
+    <h3>
+        {{ update.date }}
+    </h3>
+    <p>
+        Discription: {{ update.description }}
+    </p>
+    <p *ngIf="update.description2">
+        Discription: {{ update.description2 }}
+    </p>
+</div>
