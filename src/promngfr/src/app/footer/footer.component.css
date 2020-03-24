@@ -14,19 +14,20 @@ a {
     background-color: #2f5167;
     color: white;
     height: 180px;
+    padding: 0px;
+    margin: 0%;
   }
   .footer-logo {
-    font-size: 30px;
+    font-size: 32px;
     float: left;
-    padding-right: 100px;
-    padding-left: 10px;
+    padding-left: 18px;
   }
   .footer-logo a:visited {
     color: white;
   }
   .footer-list {
     float: right;
-    padding-top: 15px;
+    padding-top: 16px;
   }
   .footer-list li{
     padding: 5px 40px;

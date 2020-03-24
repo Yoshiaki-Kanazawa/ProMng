@@ -12,23 +12,24 @@ a {
   }
   .header {
     background: rgba(255, 217, 0, 0.836);
-    height: 60pt;
+    height: 64pt;
   }
   .header-logo{
-    font-size: 36px;
+    font-size: 42px;
     float: left;
+    padding-bottom: 6px;
+    font-weight: bold;
   }
   .header-logo p {
     line-height: 10px;
     padding-right: 40px;
     padding-left: 10px;
-    font-weight: bold;
   }
   .header-list li {
     list-style: none;
     font-size: 16px;
     float: left;
-    padding: 30px 30px;
+    padding: 32px 30px;
   }
   .manu-drop{
     float: right;

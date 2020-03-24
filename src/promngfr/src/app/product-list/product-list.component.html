@@ -1,1 +1,25 @@
-<p>product-list works!</p>
+<div class="menu">
+    <div class="main-title">
+        <p>管理項目</p>
+    </div>
+    <div class="main-table">
+      <table border="0">
+          <tr>
+              <th rowspan="2">id</th><th colspan="3">モノ</th><th colspan="2">ストック</th>
+          </tr>
+          <tr>
+              <th>名前</th><th>数量</th><th>使用日付</th><th>残量</th><th>購入日付</th>
+          </tr>
+          <tr *ngFor="let product of products">
+              <a routerLink="/detail/{{product.id}}">
+                <th>{{product.id}}</th></a><td><b>{{product.name}}</b></td><td>{{product.quantity}}</td><td>{{product.usedate}}</td><td>{{product.stock}}</td><td>{{product.purchasedate}}</td>
+              
+          </tr>
+          <tr *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)" >
+            <th>{{product.id}}</th><td><b>{{product.name}}</b></td><td>{{product.quantity}}</td><td>{{product.usedate}}</td><td>{{product.stock}}</td><td>{{product.purchasedate}}</td>
+          </tr>
+      </table>
+    </div>
+    <app-product-detail [product]="selectedProduct"></app-product-detail>
+    <a routerLink="/dashboard">お気に入り</a>
+</div>

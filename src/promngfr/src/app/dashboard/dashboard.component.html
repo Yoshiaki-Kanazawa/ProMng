@@ -1,0 +1,9 @@
+<h3>お気に入り</h3>
+<div class="star">
+    <a *ngFor="let product of products" class="1-4"
+        routerLink="/detail/{{product.id}}">
+        <div class="module product">
+            <h4>{{product.name}}</h4>
+        </div>
+    </a>
+</div>

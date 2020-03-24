@@ -1,24 +1,21 @@
-export const products = [
+import { Product } from './product';
+
+export const PRODUCTS: Product[] = [
     {
+        id: 1,
         name: 'mono1',
-        usedate: '2020/3/8',
-        quantity: '23',
-        purchasedate: '2020/3/7',
-        stock: '42'
+        usedate: null,
+        quantity: 64,
+        purchasedate: null,
+        stock: 43
     },
     {
+        id: 2,
         name: 'mono3',
-        usedate: '2020/3/8',
-        quantity: '23',
-        purchasedate: '2020/3/7',
-        stock: '42'
+        usedate: null,
+        quantity: 23,
+        purchasedate: null,
+        stock: 42
     }
 ];
-export class Product {
-    id: number;
-    name: string;
-    quantity: number;
-    useddate: Date;
-    stock: number;
-    Purchasedate: Date;
-}
+

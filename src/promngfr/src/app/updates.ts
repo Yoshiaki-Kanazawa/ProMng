@@ -27,5 +27,9 @@ export const updates = [
     {
         date: '2020/3/16',
         description: 'get-hub連結'
+    },
+    {
+        date: '2020/3/23,24',
+        description: '編集機能追加'
     }
 ];
