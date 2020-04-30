@@ -39,17 +39,28 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'proMng',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000/',
+    'localhost:3000',
+    '127.0.0.1:3000/',
+    '127.0.0.1:3000',
+)
 
 ROOT_URLCONF = 'proMng.urls'
 
@@ -137,3 +148,6 @@ STATICFILES_DIRS = (
 #LOGIN_REDIRECT_URL = '/management'
 
 NUMBER_GROUPING = 3
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
