@@ -133,6 +133,6 @@ STATICFILES_DIRS = (
 )
 
 # ログイン後トップページにリダイレクト
-LOGIN_REDIRECT_URL = '/management'
+#LOGIN_REDIRECT_URL = '/management'
 
 NUMBER_GROUPING = 3
