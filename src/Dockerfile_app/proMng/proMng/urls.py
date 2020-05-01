@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
 
-from Dockerfile_app.proMng.management.urls import router as management_router
+from management.urls import router as management_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
