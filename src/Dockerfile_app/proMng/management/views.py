@@ -7,6 +7,6 @@ from .serializer import ProductSerializer
 
 from rest_framework.decorators import api_view
 
-class ProductListViewSet(viewsets.ModelViewSet):
+class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all().order_by('created_at')
     serializer_class = ProductSerializer

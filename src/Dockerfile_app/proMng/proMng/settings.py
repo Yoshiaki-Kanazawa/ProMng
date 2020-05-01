@@ -25,7 +25,7 @@ SECRET_KEY = 'gu99gkgqud2jwsi0gl72&*t8us@imn$++u67bn!&o&*n46)mdg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'web']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'proMng',
+    'management',
     'rest_framework',
     'corsheaders',
 ]
@@ -56,10 +56,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000/',
-    'localhost:3000',
-    '127.0.0.1:3000/',
-    '127.0.0.1:3000',
+    'http://127.0.0.1:30000',
+    'http://0.0.0.0:30000',
+    'http://app:30000'
 )
 
 ROOT_URLCONF = 'proMng.urls'
@@ -89,7 +88,7 @@ WSGI_APPLICATION = 'proMng.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'proMng',
+        'NAME': 'promng',
         'USER': 'apuser',
         'PASSWORD': 'password',
         'HOST': 'db',
