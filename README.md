@@ -14,6 +14,7 @@ $ docker exec -it promng_app_1 ash
 /proMng $ python manage.py migrate
 /proMng $ python manage.py createsuperuser
 # いろいろ入力を求められるので適当に入力
+/proMng $ exit
 ```
 
 http://0.0.0.0:30000/admin にアクセスし、先ほど入力したuser/passwordでログイン。  
