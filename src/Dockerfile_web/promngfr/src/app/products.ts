@@ -7,15 +7,19 @@ export const PRODUCTS: Product[] = [
         usedate: null,
         quantity: null,
         purchasedate: null,
-        stock: null
+        stock: null,
+        amount: null,
+        created_at: null
     },
     {
         id: 2,
-        name: 'mono1',
+        name: 'mono2',
         usedate: null,
         quantity: 64,
         purchasedate: null,
-        stock: 43
+        stock: 43,
+        amount: null,
+        created_at: null
     },
     {
         id: 3,
@@ -23,7 +27,9 @@ export const PRODUCTS: Product[] = [
         usedate: null,
         quantity: 23,
         purchasedate: null,
-        stock: 42
+        stock: 42,
+        amount: null,
+        created_at: null
     }
 ];
 

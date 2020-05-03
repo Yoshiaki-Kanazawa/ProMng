@@ -13,6 +13,7 @@ import { UpdateListComponent } from './update-list/update-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessageComponent } from './message/message.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MessageComponent } from './message/message.component';
     UpdateListComponent,
     ProductDetailComponent,
     DashboardComponent,
-    MessageComponent
+    MessageComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
