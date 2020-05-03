@@ -3,7 +3,7 @@
 ## 1. docker-compose起動
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up -d --build
 ```
 
 ## 2. テーブル作成（初回のみ実行）
