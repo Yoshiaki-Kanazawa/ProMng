@@ -8,7 +8,7 @@ import { Product } from './product';
 })
 export class TestService {
   producttest: Product[] = [];
-  private Url = `http://app-container:30000/api/product`;
+  private Url = `http://app-container:30000/api/products`;
   private httpOptions: any = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
