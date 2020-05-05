@@ -9,7 +9,7 @@ $ docker-compose up -d --build
 ## 2. テーブル作成（初回のみ実行）
 
 ```bash
-$ docker exec -it app-container bash
+$ docker exec -it app-container ash
 /proMng $ python manage.py makemigrations
 /proMng $ python manage.py migrate
 /proMng $ python manage.py createsuperuser
