@@ -9,6 +9,7 @@ class Product(models.Model):
         validators=[MinLengthValidator(0)]
         )
     amount = models.PositiveIntegerField(default=0)
+    start_date = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

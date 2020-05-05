@@ -10,3 +10,8 @@ from rest_framework.decorators import api_view
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all().order_by('created_at')
     serializer_class = ProductSerializer
+
+    class Meta:
+        read_only_fields = [
+            'created_at',
+        ]
