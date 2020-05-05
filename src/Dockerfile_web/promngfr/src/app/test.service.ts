@@ -8,7 +8,7 @@ import { Product } from './product';
 })
 export class TestService {
   producttest: Product[] = [];
-  private Url = `http://app-container:30000/api/products`;
+  private Url = `http://0.0.0.0:30000/api/products/`;
   private httpOptions: any = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -18,7 +18,7 @@ export class TestService {
 
   public getTest(): Promise<Product[]> {
     return this.http
-      .get(this.Url + 'get/' + this.httpOptions)
+      .get(this.Url)
       .toPromise()
       .then((res) => {
         const response: any = res;
