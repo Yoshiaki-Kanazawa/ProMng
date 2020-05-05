@@ -23,3 +23,9 @@ http://0.0.0.0:30000/admin にアクセスし、先ほど入力したuser/passwo
 ## 3. Webサイトにアクセス
 
 http://0.0.0.0:4200 にアクセス
+
+## 4. docker-compose停止＆コンテナ削除
+
+```bash
+$ docker-compose down
+```
