@@ -3,8 +3,7 @@ version: '3'
 services:
   web:
     container_name: web-container
-    build:
-      context: ./src/Dockerfile_web
+    image: promng-web:latest
     command: ["ng", "serve", "--host", "0.0.0.0"]
     ports:
       - "4200:4200"
@@ -13,8 +12,7 @@ services:
 
   app:
     container_name: app-container
-    build:
-      context: ./src/Dockerfile_app
+    image: promng-app:latest
     command: ["python3", "manage.py", "runserver", "0.0.0.0:30000"]
     ports:
       - "30000:30000"
@@ -23,8 +21,7 @@ services:
 
   db:
     container_name: db-container
-    build:
-      context: ./db
+    image: promng-db:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
