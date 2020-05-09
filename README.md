@@ -1,5 +1,14 @@
 # 起動方法
 
+## 0. imageの更新
+
+ソースコードを更新した場合、以下の作業を行う。
+
+```bash
+$ cd [更新した領域のDockerfileのディレクトリ]
+$ docker build -t promng_web:latest .
+```
+
 ## 1. docker-compose起動
 
 ```bash
