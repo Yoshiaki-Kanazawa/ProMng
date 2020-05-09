@@ -12,7 +12,7 @@ $ docker build -t promng_web:latest .
 ## 1. docker-compose起動
 
 ```bash
-$ docker-compose up -d --build
+$ docker-compose up -d
 ```
 
 ## 2. テーブル作成（初回のみ実行）
