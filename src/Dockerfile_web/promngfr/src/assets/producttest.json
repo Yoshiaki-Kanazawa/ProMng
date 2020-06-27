@@ -2,20 +2,6 @@
     "product": 
     [
     {
-        "id": 1,
-        "name": "サンプル",
-        "usedate": null,
-        "quantity": null,
-        "purchasedate": null,
-        "stock": null
-    },
-    {
-        "id": 2,
-        "name": "サンプルsww",
-        "usedate": null,
-        "quantity": 234324,
-        "purchasedate": null,
-        "stock": 2353
     }
     ]
 }

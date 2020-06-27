@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Product } from './product';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
-  producttest: Product[] = [];
   private Url = `http://0.0.0.0:30000/api/products/`;
   private httpOptions: any = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,20 +15,8 @@ export class TestService {
     this.setAuthorization('my-auth-token');
   }
 
-  public getTest(): Promise<Product[]> {
-    return this.http
-      .get(this.Url)
-      .toPromise()
-      .then((res) => {
-        const response: any = res;
-        return response;
-      })
-      .catch(this.errorHandle);
-  }
-
-  private errorHandle(err) {
-    console.log('Error occured', err);
-    return Promise.reject(err.message || err);
+  public getTest(): Observable<any> {
+    return this.http.get(this.Url);
   }
 
   public setAuthorization(token: string = null): void {
@@ -40,6 +27,3 @@ export class TestService {
     this.httpOptions.headers = this.httpOptions.headers.set(`Authorization`, bearerToken);
   }
 }
-
-
-

@@ -2,9 +2,6 @@ export class Product {
     id: number;
     name: string;
     amount: number;
+    start_date: Date;
     created_at: Date;
-    usedate: Date;
-    quantity: number;
-    stock: number;
-    purchasedate: Date;
 }
