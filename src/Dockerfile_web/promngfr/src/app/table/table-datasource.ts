@@ -19,12 +19,15 @@ export class TableDataSource  extends DataSource<Product> implements OnInit {
   paginator: MatPaginator;
   sort: MatSort;
 
-  constructor(private producttest: Product[] ) {
+  constructor(private testService: TestService ) {
     super();
   }
 
   ngOnInit(): void {
-    this.data = this.producttest;
+      this.testService.getTest().subscribe((data: Product[]) => {
+      console.log(data);
+      this.data = data;
+    });
   }
   /**
    * Connect this data source to the table. The table will only update when

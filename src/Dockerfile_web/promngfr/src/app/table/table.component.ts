@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { TableDataSource } from './table-datasource';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -16,55 +15,33 @@ import { TestService } from '../test.service';
 })
 export class TableComponent implements AfterViewInit, OnInit {
 
-  producttests: Product[] = [];
-  paginator: MatPaginator;
-  sort: MatSort;
+  data: Product[];
 
-  // @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  // @ViewChild(MatSort, {static: false}) sort: MatSort;
-  @ViewChild(MatTable, {static: false}) table: MatTable<Product>;
-  // dataSource: TableDataSource;
-  // applyFilter: any;
+  dataSource: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'amount', 'start_date', 'created_at'];
 
-  // @ViewChild(MatSort, {static: false}) set matSort(ms: MatSort) {
-  //   this.sort = ms;
-  //   this.setDataSourceAttributes();
-  // }
-  // @ViewChild(MatPaginator, {static: false}) set matPaginator(mp: MatPaginator) {
-  //   this.paginator = mp;
-  //   this.setDataSourceAttributes();
-  // }
-  // setDataSourceAttributes() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  //   if (this.paginator && this.sort) {
-  //       this.applyFilter('');
-  //   }
-  // }
-
-  constructor( private testService: TestService ) {}
-
-  ngOnInit(): void {
-    this.testService.getTest().subscribe((data: any[]) => {
+  constructor( private testService: TestService ) {
+    this.testService.getTest().subscribe((data: Product[]) => {
       console.log(data);
-      this.producttests = data;
+      this.data = data;
+      this.dataSource = new MatTableDataSource(this.data);
     });
   }
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatTable, {static: true}) table: MatTable<Product>;
+
+  ngOnInit() {}
+
   ngAfterViewInit() {
-    this.sort = this.sort;
-    this.paginator = this.paginator;
-    // this.table.dataSource = this.dataSource;
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
   }
 
-  // refreshDataSource() {
-  //   this.dataSource = new TableDataSource(this.testService);
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
   /**
    * Connect this data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -74,13 +51,13 @@ export class TableComponent implements AfterViewInit, OnInit {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.producttests),
+      observableOf(this.data),
       this.paginator.page,
       this.sort.sortChange
     ];
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.producttests]));
+      return this.getPagedData(this.getSortedData([...this.data]));
     }));
   }
 
@@ -119,6 +96,7 @@ export class TableComponent implements AfterViewInit, OnInit {
     });
   }
 }
+
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);

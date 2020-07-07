@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="producttests"  matSort>
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort>
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -33,20 +33,20 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
   
 
   <mat-paginator #paginator
-      [length]="producttests.length"
+      [length]="data.length"
       [pageIndex]="0"
-      [pageSize]="50"
-      [pageSizeOptions]="[25, 50, 100, 250]">
+      [pageSize]="2"
+      [pageSizeOptions]="[2, 50, 100, 250]"
+      showFirstLastButtons>
   </mat-paginator>
+
 </div>
 
-  <ng-container *ngFor="let producttest of producttests">
-    <h1>{{producttest.name}}</h1>
-    <h1>{{producttest.id}}</h1>
+  <ng-container *ngFor="let test of data">
+    <h1>{{test.name}}</h1>
+    <h1>{{test.id}}</h1>
   </ng-container>
-
 <p>あ8989</p>
