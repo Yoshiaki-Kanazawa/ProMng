@@ -38,15 +38,19 @@
   <mat-paginator #paginator
       [length]="data.length"
       [pageIndex]="0"
-      [pageSize]="2"
-      [pageSizeOptions]="[2, 50, 100, 250]"
+      [pageSize]="50"
+      [pageSizeOptions]="[50, 100, 250]"
       showFirstLastButtons>
   </mat-paginator>
 
-</div>
+  <div>
+    <label>Product name:
+      <input #testName />
+      <input #testAmount />
+    </label>
+    <button (click)="add(testName.value, testAmount.value); testName.value=''; testAmount.value=''">
+      add
+    </button>
+  </div>
 
-  <ng-container *ngFor="let test of data">
-    <h1>{{test.name}}</h1>
-    <h1>{{test.id}}</h1>
-  </ng-container>
-<p>あ8989</p>
+</div>
