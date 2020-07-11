@@ -2,10 +2,10 @@
 
 ## 0. imageの更新
 
-ソースコードを更新した場合、以下の作業を行う。
+ソースコードを更新した場合、以下の作業を行う。(例としてweb領域の手順を記載)
 
 ```bash
-$ cd [更新した領域のDockerfileのディレクトリ]
+$ cd ./src/Dockerfile_web
 $ docker build -t promng_web:latest .
 ```
 
@@ -13,6 +13,7 @@ $ docker build -t promng_web:latest .
 
 ```bash
 $ docker-compose up -d
+$ docker-compose restart app
 ```
 
 ## 2. テーブル作成（初回のみ実行）
