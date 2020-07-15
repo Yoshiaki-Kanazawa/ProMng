@@ -3,10 +3,13 @@
 ## 0. imageの更新
 
 ソースコードを更新した場合、以下の作業を行う。(例としてweb領域の手順を記載)
+しかし、app領域はDockerHub上で自動ビルドの設定をしているため、ソースコードの変更をGitHubにpushするだけでimageがビルドされる。
 
 ```bash
 $ cd ./src/Dockerfile_web
-$ docker build -t promng_web:latest .
+$ docker build -t yoshiaki1226/promng_web:latest .
+# ある程度切りがいいところで以下実行
+$ docker push yoshiaki1226/promng_web:latest
 ```
 
 ## 1. docker-compose起動
