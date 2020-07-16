@@ -16,7 +16,6 @@ import { TestService } from '../test.service';
 export class TableComponent implements AfterViewInit, OnInit {
 
   data: Product[];
-
   dataSource: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
@@ -94,6 +93,19 @@ export class TableComponent implements AfterViewInit, OnInit {
         default: return 0;
       }
     });
+  }
+
+
+  add(name: string, amount: number ): void {
+    name = name.trim();
+    if (!name) { return; }
+    const product = new Product();
+    product.name = name;
+    product.amount = amount;
+    this.testService.addTest(product)
+      .subscribe(data => {
+        this.data.push(data);
+      });
   }
 }
 
