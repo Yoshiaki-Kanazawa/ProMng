@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'promng',
         'USER': 'apuser',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'db-container',
         'PORT': '3306',
         'ATOMIC_REQUESTS': True
     }
