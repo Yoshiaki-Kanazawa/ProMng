@@ -99,7 +99,7 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
 
   add(name: string, amount: number, start_date: Date): void {
     name = name.trim();
-    if (!name) { return; }
+    if (!name || !amount) { return; }
     const product = new Product();
     product.name = name;
     product.amount = amount;

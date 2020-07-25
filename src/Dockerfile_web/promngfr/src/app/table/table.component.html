@@ -56,7 +56,7 @@
       </mat-form-field> 
     <mat-form-field appearance="standard">
       <mat-label>使用開始日</mat-label>
-      <input matInput [matDatepicker]="picker" #testStartDate>
+      <input matInput placeholder="YYYY-MM-DD" [matDatepicker]="picker" #testStartDate>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
