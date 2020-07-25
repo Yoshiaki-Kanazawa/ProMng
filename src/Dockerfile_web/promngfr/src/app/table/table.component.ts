@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { Product } from '../product';
 import { TestService } from '../test.service';
@@ -13,7 +14,7 @@ import { TestService } from '../test.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements AfterViewInit, OnInit {
+export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModule {
 
   data: Product[];
   dataSource: any;
@@ -96,12 +97,13 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
 
-  add(name: string, amount: number ): void {
+  add(name: string, amount: number, start_date: Date): void {
     name = name.trim();
     if (!name) { return; }
     const product = new Product();
     product.name = name;
     product.amount = amount;
+    product.start_date = start_date;
     this.testService.addTest(product)
       .subscribe(data => {
         this.data.push(data);
