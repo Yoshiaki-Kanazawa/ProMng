@@ -4,6 +4,7 @@ RUN npm install -g @angular/cli \
  && ng config -g cli.packageManager yarn \
  && npm install --save-dev @angular-devkit/build-angular \
  && npm install --save @angular/material \
+ && npm install ng2-date-picker --save \
  && mkdir promngfr
 COPY ./promngfr /promngfr
 WORKDIR /promngfr
