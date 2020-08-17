@@ -6,6 +6,11 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+
+
+
 import { Product } from '../product';
 import { TestService } from '../test.service';
 
@@ -22,7 +27,7 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'amount', 'start_date', 'created_at'];
 
-  constructor( private testService: TestService ) {
+  constructor( private testService: TestService , public _matdialog: MatDialog) {
     this.testService.getTest().subscribe((data: Product[]) => {
       console.log(data);
       this.data = data;
@@ -108,6 +113,18 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
       .subscribe(data => {
         this.data.push(data);
       });
+  }
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+
+    // 表示するdialogの設定
+    dialogConfig.disableClose = true;
+    dialogConfig.id = 'modal-component';
+    dialogConfig.height = '350px';
+    dialogConfig.width = '600px';
+
+    const modalDialog = this._matdialog.open(DialogComponent, dialogConfig);
   }
 }
 

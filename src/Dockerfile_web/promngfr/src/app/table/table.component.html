@@ -60,9 +60,11 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <button (click)="add(testName.value, testAmount.value, testStartDate.value); testName.value=''; testAmount.value=''; testStartDate.value='';">
+    <button onclick="window.location.reload();" (click)="add(testName.value, testAmount.value, testStartDate.value); testName.value=''; testAmount.value=''; testStartDate.value='';">
       add
     </button>
   </div>
-
+</div>
+<div>
+  <button (click)="openModal()">ダイアログ</button>
 </div>

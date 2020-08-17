@@ -27,8 +27,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material';
 
 
+
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+
+
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const MY_FORMATS = {
   parse: {
@@ -49,6 +54,7 @@ export const MY_FORMATS = {
     UpdateListComponent,
     NavComponent,
     TableComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,13 +76,15 @@ export const MY_FORMATS = {
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MomentDateModule
+    MomentDateModule,
+    MatDialogModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'ja' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }
