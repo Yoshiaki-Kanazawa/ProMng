@@ -25,7 +25,7 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
   dataSource: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'amount', 'start_date', 'created_at'];
+  displayedColumns = ['id', 'name', 'amount', 'start_date', 'created_at', 'select'];
 
   constructor( private testService: TestService , public _matdialog: MatDialog) {
     this.testService.getTest().subscribe((data: Product[]) => {
@@ -101,20 +101,6 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
     });
   }
 
-
-  add(name: string, amount: number, start_date: Date): void {
-    name = name.trim();
-    if (!name || !amount) { return; }
-    const product = new Product();
-    product.name = name;
-    product.amount = amount;
-    product.start_date = start_date;
-    this.testService.addTest(product)
-      .subscribe(data => {
-        this.data.push(data);
-      });
-  }
-
   openModal() {
     const dialogConfig = new MatDialogConfig();
 
@@ -126,6 +112,7 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
 
     const modalDialog = this._matdialog.open(DialogComponent, dialogConfig);
   }
+
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */

@@ -1,12 +1,33 @@
 <div id="modal-content-wrapper">
     <header id="modal-header">
-        <h1 id="modal-title">ログアウト確認</h1>
+        <h1 id="modal-title">タイトル</h1>
     </header>
     <section id="modal-body">
-        <p>ログアウトしてもよろしいでしょうか？</p>
+        <p>説明文とかなんかあればどうぞ</p>
     </section>
     <footer id="modal-footer">
-        <button mat-raised-button id="modal-action-button" (click)="actionFunction()">ログアウト</button>
+        <button mat-raised-button id="modal-action-button" (click)="actionFunction()">ポップアップでるよ</button>
         <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">戻る</button>
     </footer>
   </div>
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>名前</mat-label>
+      <input matInput placeholder="サンプル" #testName />
+      <mat-hint>Hint unko</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>数量</mat-label>
+      <input matInput placeholder="666" #testAmount />
+      <mat-hint>自然数</mat-hint>
+    </mat-form-field> 
+  <mat-form-field appearance="standard">
+    <mat-label>使用開始日</mat-label>
+    <input matInput placeholder="YYYY-MM-DD" [matDatepicker]="picker" #testStartDate>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button onclick="window.location.reload();" (click)="add(testName.value, testAmount.value, testStartDate.value); testName.value=''; testAmount.value=''; testStartDate.value='';">
+    add
+  </button>
+</div>
