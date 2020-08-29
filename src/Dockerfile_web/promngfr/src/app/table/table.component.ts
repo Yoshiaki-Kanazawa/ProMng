@@ -8,7 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-
+import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 
 import { Product } from '../product';
@@ -111,6 +111,30 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
     dialogConfig.width = '600px';
 
     const modalDialog = this._matdialog.open(DialogComponent, dialogConfig);
+  }
+
+  openUpdateDialog(product: Product) {
+    const dialogConfig = new MatDialogConfig();
+
+    // 表示するdialogの設定
+    dialogConfig.disableClose = true;
+    dialogConfig.id = 'modal-component';
+    dialogConfig.height = '350px';
+    dialogConfig.width = '600px';
+    dialogConfig.data = {id: product.id,
+                         name: product.name,
+                         amount: product.amount,
+                         start_date: product.start_date
+                        };
+
+    const modalDialog = this._matdialog.open(UpdateDialogComponent, dialogConfig);
+  }
+
+  delete(id: string) {
+    this.testService.deleteTest(id)
+      .subscribe(data => {
+        this.data.push(data);
+      });
   }
 
 }

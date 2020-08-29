@@ -23,6 +23,11 @@ export class TestService {
   }
 
   public deleteTest(id: string): Observable<any> {
-    return this.http.delete<Product>(this.Url + id, this.httpOptions);
+    return this.http.delete<Product>(this.Url + id + '/', this.httpOptions);
   }
+
+  public updateTest(data: Product): Observable<any> {
+    return this.http.put<Product>(this.Url + data.id + '/', data, this.httpOptions);
+  }
+
 }

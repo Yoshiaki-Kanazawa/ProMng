@@ -34,6 +34,7 @@ import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-ad
 
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -55,6 +56,7 @@ export const MY_FORMATS = {
     NavComponent,
     TableComponent,
     DialogComponent,
+    UpdateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,9 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent]
+  entryComponents: [
+    DialogComponent,
+    UpdateDialogComponent
+  ]
 })
 export class AppModule { }

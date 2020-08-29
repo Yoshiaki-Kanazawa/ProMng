@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
-
 import { Product } from '../product';
 import { TestService } from '../test.service';
 
@@ -13,7 +12,7 @@ import { TestService } from '../test.service';
 })
 export class DialogComponent implements OnInit {
 
-  constructor(public _dialogRef: MatDialogRef<DialogComponent>, private testService: TestService) { }
+  constructor(public _dialogRef: MatDialogRef<DialogComponent>, private testService: TestService, private product: Product) { }
 
    data: Product[];
 
