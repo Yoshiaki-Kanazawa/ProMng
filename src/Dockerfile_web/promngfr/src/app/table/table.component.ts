@@ -27,6 +27,7 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'amount', 'start_date', 'created_at', 'select'];
 
+  // tslint:disable-next-line: variable-name
   constructor( private testService: TestService , public _matdialog: MatDialog) {
     this.testService.getTest().subscribe((data: Product[]) => {
       console.log(data);
@@ -107,8 +108,8 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
     // 表示するdialogの設定
     dialogConfig.disableClose = true;
     dialogConfig.id = 'modal-component';
-    dialogConfig.height = '350px';
-    dialogConfig.width = '600px';
+    dialogConfig.height = '500px';
+    dialogConfig.width = '400px';
 
     const modalDialog = this._matdialog.open(DialogComponent, dialogConfig);
   }
@@ -119,8 +120,8 @@ export class TableComponent implements AfterViewInit, OnInit, MatDatepickerModul
     // 表示するdialogの設定
     dialogConfig.disableClose = true;
     dialogConfig.id = 'modal-component';
-    dialogConfig.height = '350px';
-    dialogConfig.width = '600px';
+    dialogConfig.height = '500px';
+    dialogConfig.width = '400px';
     dialogConfig.data = {id: product.id,
                          name: product.name,
                          amount: product.amount,

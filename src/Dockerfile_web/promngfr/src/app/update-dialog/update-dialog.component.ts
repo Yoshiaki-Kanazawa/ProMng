@@ -23,7 +23,7 @@ export class UpdateDialogComponent implements OnInit {
   }
 
   actionFunction() {
-    alert('You have logged out.');
+    alert('変更しました！');
     this.closeModal();
   }
 

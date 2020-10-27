@@ -1,36 +1,40 @@
 <div id="modal-content-wrapper">
         <header id="modal-header">
-            <h1 id="modal-title">タイトル</h1>
+            <h1 id="modal-title">変更内容&nbsp;<font size="+2"><mat-icon >autorenew</mat-icon></font></h1>
         </header>
         <section id="modal-body">
-            <p>説明文とかなんかあればどうぞ</p>
+            <p><span>変更する内容をかいてください</span></p>
+            <div>
+                <mat-dialog-content>
+                <mat-form-field appearance="standard">
+                  <mat-label>名前</mat-label>
+                  <input matInput value="{{data1.name}}" #testName />
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+                
+                <mat-form-field appearance="standard">
+                  <mat-label>数量</mat-label>
+                  <input matInput value="{{data1.amount}}" #testAmount />
+                  <mat-hint></mat-hint>
+                </mat-form-field> 
+                
+                <mat-form-field appearance="standard">
+                <mat-label>使用開始日</mat-label>
+                <input matInput value="{{data1.start_date}}" [matDatepicker]="picker" #testStartDate>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </mat-dialog-content>
+            </div>
         </section>
         <footer id="modal-footer">
-            <button mat-raised-button id="modal-action-button" (click)="actionFunction()">ポップアップでるよ</button>
-            <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">戻る</button>
+            <button onclick="window.location.reload();" mat-flat-button color="accent" (click)="update(data1.id, testName.value, testAmount.value, testStartDate.value); testName.value=''; testAmount.value=''; testStartDate.value=''; actionFunction()">
+                更新完了
+            </button>
+            <button mat-stroked-button (click)="closeModal()">戻る</button>
         </footer>
       </div>
-      <div>
-        <mat-dialog-content>
-        <mat-form-field appearance="standard">
-          <mat-label>名前</mat-label>
-          <input matInput value="{{data1.name}}" #testName />
-          <mat-hint>Hint unko</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-label>数量</mat-label>
-          <input matInput value="{{data1.amount}}" #testAmount />
-          <mat-hint>自然数</mat-hint>
-        </mat-form-field> 
-      <mat-form-field appearance="standard">
-        <mat-label>使用開始日</mat-label>
-        <input matInput value="{{data1.start_date}}" [matDatepicker]="picker" #testStartDate>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <button onclick="window.location.reload();" (click)="update(data1.id, testName.value, testAmount.value, testStartDate.value); testName.value=''; testAmount.value=''; testStartDate.value='';">
-        update
-      </button>
-    </mat-dialog-content>
-    </div>
+
+
+      
     

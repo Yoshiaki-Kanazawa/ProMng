@@ -12,7 +12,9 @@ import { TestService } from '../test.service';
 })
 export class DialogComponent implements OnInit {
 
-  constructor(public _dialogRef: MatDialogRef<DialogComponent>, private testService: TestService, private product: Product) { }
+
+  // tslint:disable-next-line: variable-name
+  constructor(public _dialogRef: MatDialogRef<DialogComponent>, private testService: TestService) { }
 
    data: Product[];
 
@@ -20,7 +22,7 @@ export class DialogComponent implements OnInit {
   }
 
   actionFunction() {
-    alert('You have logged out.');
+    alert('追加しました！ (ﾎﾞﾌｩ');
     this.closeModal();
   }
 
@@ -28,6 +30,7 @@ export class DialogComponent implements OnInit {
     this._dialogRef.close();
   }
 
+  // tslint:disable-next-line: variable-name
   add(name: string, amount: number, start_date: Date): void {
     name = name.trim();
     if (!name || !amount) { return; }
